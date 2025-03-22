@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Systematic Investment Plan calculator</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="description" content="Looking to calculate your average stock cost in the US market? This Stock Average Calculator lets you find your average share price by entering your buy transactions." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="container-fluid wrapper-body">
+  <div class="row">
+    <div id="mobile-header" class="hidden-on-desktop-tablet">
+      <menu-btn></menu-btn>
+      <div class="mobile-logo">
+        <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+      </div>
+      <div></div>
+    </div>
+    <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
+      <div class="title-wrapper">
+        <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+        <div class="custom-control custom-switch mb-3">
+          <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
+          <label class="custom-control-label" for="darkModeSwitch"></label>
+        </div>
+      </div>
+
+      <!---Menu Section-->
+      <div hidden id="page-name">SIP Calculator</div>
+      <div class="top-menu">
+        <s-menu></s-menu>
+      </div>
+    </div>
+    <div class="col content-right-body-wrapper">
+      <div id="sip-calculator">
+        <div class="content-body-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <header class="d-flex justify-content-between">
+                <h1 class="headers">SIP(Systematic Investment Plan) calculator</h1>
+                <div id="clock"></div>
+              </header>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div id="sip-result-wrapper" class="col-md-4">
+              <div>
+                <label style="float:left;margin-right:10px;">Monthly Investment Amount</label>
+                <input class="form-control" type="number" id="investment" autocomplete="off" placeholder="3000" onchange="sipCalculator()" />
+                <span id='error1'></span>
+              </div>
+              <div style="margin-top:15px">
+                <label style="float:left;margin-right:10px;">Investment Period</label>
+                <div class="input-group">
+                  <input class="form-control" type="number" id="years" autocomplete="off" placeholder="3" onchange="sipCalculator()" />
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">years</div>
+                  </div>
+                </div>
+                <span id='error2'></span>
+              </div>
+              <div style="margin-top:15px">
+                <label style="float:left;margin-right:10px;">Expected Annual Returns(%)</label>
+                <div class="input-group">
+                  <input class="form-control" type="number" id="rateOfInterest" autocomplete="off" placeholder="10" onchange="sipCalculator()" />
+                  <div class="input-group-append">
+                    <div class="input-group-text">%</div>
+                  </div>
+                </div>
+                <span id='error2'></span>
+              </div>
+              <div style="margin-top:15px">
+                <label style="float:left;margin-right:10px;">Step up - Yearly Increase in Monthly
+                  Investment(%)</label>
+                <div class="input-group">
+                  <input class="form-control" type="number" id="rateIncrease" autocomplete="off" placeholder="0" onchange="sipCalculator()" />
+                  <div class="input-group-append">
+                    <div class="input-group-text">%</div>
+                  </div>
+                </div>
+                <span id='error2'></span>
+              </div>
+              <div class="r-sip">
+                <div class="results">Expected Amount : <span id="tm">0</span> </div>
+                <hr />
+                <div class="results"> Amount Invested : <span id="im">0</span></div>
+                <hr>
+                <div class="results">Total Gain : <span id="gm">0</span> </div>
+              </div>
+
+            </div>
+            <div class="col-md-3">
+              <canvas id="sipChart"></canvas>
+            </div>
+            <div class="col-md-4 st banner-ad-desktop">
+              <div id="load-global-ads" class="load-global-ads"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 st">
+
+              <button class="btn btn-warning" onclick="clearFields1()">Clear Fields</button>
+              <button class="btn btn-success cust-btn-success" onclick="sipCalculator()">Calculate</button>
+            </div>
+            <div class="col-md-12 d-block d-md-none display-mobile-ad">
+              <div id="load-global-ads" class="load-global-ads"></div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body-wrapper mt-4 details-sec-wrapper">
+          <h3>What is SIP (Systematic Investment Plan)?</h3>
+          <p>
+            <strong>Systematic Investment Plan (SIP):</strong> An investment strategy offered by mutual
+            fund companies in the United States.
+          </p>
+
+          <p>
+            <strong>Investment Methodology:</strong> Allows individuals to invest a fixed amount at
+            regular intervals
+            (weekly, bi-weekly, monthly, quarterly) in a chosen mutual fund available in the US market.
+          </p>
+
+          <p>
+            <strong>Objective:</strong> A disciplined and passive approach for individual investors to
+            build long-term
+            wealth in the US financial markets, leveraging the power of compounding.
+          </p>
+
+          <p>
+            <strong>Volatility Management:</strong> Helps to reduce the impact of market volatility as
+            investments are made
+            at regular intervals, averaging out the purchase price over time.
+          </p>
+
+          <h3>SIP Calculator Functionality:</h3>
+
+          <ul>
+            <li><strong>Wealth Gain Estimation:</strong> Calculates the potential wealth growth and
+              projected returns for
+              a regular SIP investment (typically monthly).</li>
+            <li><strong>Estimation Basis:</strong> Provides an estimated maturity amount
+              based on a
+              projected annual rate of return relevant to US mutual fund performance.</li>
+            <li><strong>Comparative Tool:</strong> If the investor also holds Certificates of Deposit (CDs) in their
+              portfolio, a
+              CD calculator can be used to approximate the maturity value for comparison.</li>
+          </ul>
+
+          <h3>Benefits of SIP compared to Lumpsum Investment:</h3>
+
+          <ol>
+            <li>
+              <strong>Avoids Market Timing:</strong>
+              <p>Eliminates the need to speculate on market highs and lows for generating returns over the
+                long term in the US stock market.</p>
+            </li>
+            <li>
+              <strong>Mitigates Impact of Market Volatility:</strong>
+              <p>
+              <ul>
+                <li>Making regular investments, such as monthly, can significantly reduce the impact of market
+                  volatility commonly seen in the US markets.</li>
+                <li>Employs the principle of dollar-cost averaging to reduce the risk associated with
+                  fluctuations in the price of investments.
+                </li>
+              </ul>
+              </p>
+            </li>
+            <li>
+              <strong>Passive and Automated Investment:</strong>
+              <p>
+              <ul>
+                <li>Passive Investing: Encourages a hands-off and automated approach to investing in US mutual funds.</li>
+                <li>Regular Contributions: Payments are typically deducted automatically from your bank account, fostering a
+                  disciplined and committed
+                  savings/investment strategy.</li>
+              </ul>
+              </p>
+            </li>
+            <li>
+              <strong>Flexibility:</strong>
+              <p>
+              <ul>
+                <li>Investment Amount: SIPs offer flexibility, allowing investors to start with relatively small amounts, such as $25 or $50 per month, depending on the mutual fund.</li>
+                <li>Easy Management: Investors generally have the flexibility to set up, modify, or cancel
+                  their SIPs at their convenience through their brokerage or mutual fund provider.
+                </li>
+              </ul>
+              </p>
+            </li>
+          </ol>
+
+          <h3>Conclusion:</h3>
+
+          <p>
+            - SIP serves as a strategic investment tool for individuals in the US seeking a disciplined, potentially lower-risk, and
+            automated
+            approach to long-term wealth accumulation through mutual funds.
+          </p>
+
+          <p>
+            - The flexibility and ease of management make SIP an accessible investment option for a wide range of
+            investors in the United States.
+          </p>
+
+          <p>
+            - Utilizing calculators designed for SIPs and other investment vehicles empowers investors to plan and project their
+            investment outcomes
+            more effectively within the context of the US financial landscape.
+          </p>
+
+        </div>
+      </div>
+      <ft-share></ft-share>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./script/components.js"></script>
+  <script src="./script/script.js"></script>
+  <g-analytics></g-analytics>
+</body>
+
+</html>
