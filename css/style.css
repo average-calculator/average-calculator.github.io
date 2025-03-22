@@ -28,6 +28,10 @@
   transition: color .1s, border-color .35s, background-color .5s;
 }
 
+h3 {
+  font-size: 1rem!important;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -61,7 +65,7 @@ body {
 }
 
 .app-logo {
-  font-size: 18px;
+  font-size: 16px;
   padding: 16px;
   text-transform: uppercase;
   font-weight: 600;
@@ -438,12 +442,11 @@ font-weight: 600;
   .hamburger-btn span:nth-child(2) {
     top: 50%;
     width:80%;
-    left:10%;
-    height: 5px;
     transform: translateY(-50%);
   }
   .hamburger-btn span:nth-child(3) {
     bottom: 0;
+    width: 60%;
   }
   .hamburger-btn.active span:nth-child(1) {
     top: 50%;
@@ -455,6 +458,7 @@ font-weight: 600;
   }
   .hamburger-btn.active span:nth-child(3) {
     bottom: 50%;
+    width: 100%;
     transform: translateY(50%) rotate(-45deg);
   }
   footer {
@@ -735,13 +739,30 @@ body.dark-mode,
 
 .dark-mode .card-text,
 .dark-mode .card-title,
+.dark-mode .text-white,
 .dark-mode .table-body-main-wrapper .form-label {
-  color: #000;
+  color: #e6e6e6;
 }
 
+.dark-mode .alert-warning {
+  color: #ffcc66;
+  background-color: #5a4500;
+  border-color: #cc9900;
+}
+
+.dark-mode .alert-info {
+  color: #66d9ff;
+  background-color: #003b46;
+  border-color: #0099cc;
+}
+
+.dark-mode .bg-danger {
+  background-color: #8b0000 !important;
+}
 
 .dark-mode .content-body-wrapper,
 .dark-mode .sidebar,
+.dark-mode .card,
 body.dark-mode {
   background-color: var(--background-dark);
 }
