@@ -29,7 +29,7 @@ class SiteMenu extends HTMLElement {
       <i class="fas fa-tachometer-alt"></i>Stock Average Calculator
     </a>
   </li>
-  <li title="Stock Profit Calculator">
+  <!-- <li title="Stock Profit Calculator">
     <a href="./stock-profit-calculator.html">
       <i class="fas fa-chart-line"></i>Stock Profit/Loss Calculator
     </a>
@@ -69,7 +69,7 @@ class SiteMenu extends HTMLElement {
       <i class="fas fa-angle-double-up"></i>Rule of 72 Calculator
     </a>
   </li>
-  <!-- <li title="Dividend Details">
+  <li title="Dividend Details">
         <a href="./indian-stock-market-dividend-details.html">
             <i class="fas fa-cubes"></i>
             Dividend Details 2023 - 2025 <img src="./images/new-icon.gif" height="35" width="35" />
@@ -92,7 +92,7 @@ class SiteMenu extends HTMLElement {
             <i class="far fa-calendar-alt"></i>
             Trading Holidays 2025 <img src="./images/new-icon.gif" height="35" width="35" />
         </a>
-    </li> -->
+    </li>
   <li title="Best books on investment, trading, stock market">
     <a href="./top-books-on-investment-trading-stock-market.html">
       <i class="fas fa-book"></i>
@@ -108,7 +108,7 @@ class SiteMenu extends HTMLElement {
     <a href="./contact-us.html">
       <i class="fas fa-user-friends"></i>Contact Us
     </a>
-  </li>
+  </li> -->
 </ul>
 `;
   }
