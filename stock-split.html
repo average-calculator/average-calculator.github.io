@@ -101,13 +101,13 @@
           <div class="content-body-wrapper mt-4 details-sec-wrapper">
             <h3 class="mb-2"><a href="./stock-split.html">Stock Split Calculator</a></h3>
           
-            <p>Use this calculator to determine the new stock price and the number of shares you will own after a <a href="./stock-split.html">stock split</a>. You can also use this tool to understand the effects of a <a href="./stock-split.html">reverse stock split</a>.</p>
+            <p>Use this calculator to determine the new stock price and the number of shares you will own after a <a href="./stock-split.html">stock split</a>. You can also use this tool to understand the effects of a <a href="./stock-split.html">reverse stock split</a> in any stock market around the world.</p>
             <br />
             <p>A stock split increases the number of shares in a company by issuing more shares to current shareholders. For example, in a 2:1 stock split, for every 1 share owned, shareholders will receive 2 additional shares. Conversely, a <a href="./stock-split.html">reverse stock split</a> reduces the number of outstanding shares.</p>
             <br />
             <p>Inputs:</p>
             <br />
-            <p>Current Stock Price ($): The current price per share of the stock.</p>
+            <p>Current Stock Price (in your local currency): The current price per share of the stock.</p>
             <br />
             <p>Stock Split Ratio (New Shares : Old Shares): The ratio indicating how many new shares will be given for each old share. For a reverse split, you would enter the ratio in the opposite order (Old Shares : New Shares). To <a href="./stock-split.html">calculate reverse stock split</a>, enter the higher number first.</p>
             <br />
@@ -139,11 +139,11 @@
           let numberOfShares = parseInt(document.getElementById('numberOfShares').value);
 
           // Calculate new stock price
-          let newPrice = (currentPrice * oldShares) / (newShares + oldShares);
+          let newPrice = (currentPrice * oldShares) / (newShares);
           document.getElementById('newPrice').innerText = 'New Stock Price: $' + newPrice.toFixed(2);
 
           // Calculate shares after split
-          let totalSharesAfterSplit = (newShares / oldShares) * numberOfShares;
+          let totalSharesAfterSplit = (newShares) * numberOfShares - numberOfShares;
           document.getElementById('newShares').innerText = 'Additional Shares: ' + Math.floor(totalSharesAfterSplit);
 
           // Calculate whole shares after split
