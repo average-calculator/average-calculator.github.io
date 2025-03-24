@@ -72,6 +72,9 @@ body {
   font-weight: 600;
   display: block;
   float: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .wrapper-body {
@@ -394,7 +397,8 @@ font-weight: 600;
     transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     width: 62%;
     font-size: 13px;
-    box-shadow: 1rem 1rem 5rem var(--shadow-color);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 1rem 1rem 2rem var(--shadow-color), -1rem 0 10rem rgb(255 255 255/.15) inset;
   }
   #clock {
     font-size: unset;
