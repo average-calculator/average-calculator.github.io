@@ -2,8 +2,8 @@
   --primary-color: #00360c;
   --secondary-color: #2c608d;
   --border-color: #ddd;
-  --background-light: #fff;
-  --background-dark: #2f2f2f;
+  --background-light: rgb(255 255 255/.65);
+  --background-dark: rgb(47 47 47/.65);
   --hover-background: #eaebee;
 
   /* 语义色 */
@@ -56,7 +56,8 @@ body {
   background-color: #f3f3f3;
 }
 .content-body-wrapper {
-  background-color: #fff;
+  background-color: var(--background-light);
+  backdrop-filter: blur(2rem) saturate(180%);
 }
 #investedamount1 span.unit-amount,
 #investedamount2 span.unit-amount {
@@ -66,7 +67,7 @@ body {
 
 .app-logo {
   font-size: 16px;
-  padding: 16px;
+  padding: 16px 0;
   text-transform: uppercase;
   font-weight: 600;
   display: block;
@@ -384,7 +385,8 @@ font-weight: 600;
   .sidebar {
     height: 100%;
     position: absolute!important;
-    background: #eceff0;
+    background: rgb(236 239 240/.65);
+    backdrop-filter: blur(2rem) saturate(180%);
     color: #000;
     z-index: 1;
     top: 40px;

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Stock Split Calculator</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="description" content="Easily calculate the impact of a stock split or reverse stock split with our free Stock Split Calculator. Determine your new share price and total shares. Understand how to calculate reverse stock splits." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid wrapper-body">
+    <div class="row">
+      <div id="mobile-header" class="hidden-on-desktop-tablet">
+        <menu-btn></menu-btn>
+        <div class="mobile-logo">
+          <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+        </div>
+        <div></div>
+      </div>
+      <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
+        <div class="title-wrapper">
+          <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+          <div class="custom-control custom-switch mb-3">
+            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
+            <label class="custom-control-label" for="darkModeSwitch"></label>
+          </div>
+        </div>
+
+        <!---Menu Section-->
+        <div hidden id="page-name">Stock Split Calculator</div>
+        <div class="top-menu">
+          <s-menu></s-menu>
+        </div>
+      </div>
+      <div class="col content-right-body-wrapper">
+        <div id="emi-calculator">
+          <div class="content-body-wrapper">
+            <div class="row">
+              <div class="col-md-12">
+                <header class="d-flex justify-content-between">
+                  <h1 class="headers">Stock Split Calculator</h1>
+                  <div id="clock"></div>
+                </header>
+                <hr />
+              </div>
+            </div>
+            <div class="row">
+              <div id="sip-result-wrapper" class="col">
+                <form id="stockForm">
+                  <div class="form-group">
+                    <label for="currentPrice">Current Stock Price</label>
+                    <input type="number" class="form-control" tabindex="0" id="currentPrice" placeholder="stock price" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="splitRatio">Stock Split Ratio (New Shares:Old Shares):</label>
+                    <div class="input-group">
+
+                      <input type="text" class="form-control" tabindex="0" id="splitRatio" placeholder="new shares:old shares" required>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Example 1:2</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="numberOfShares">Number of Shares Owned:</label>
+                    <input type="number" class="form-control" tabindex="0" id="numberOfShares" placeholder="number of shares owned" required>
+                  </div>
+                </form>
+                <div class="btn-wrapper">
+                  <button class="btn btn-warning" onclick="clearAllFields(['splitRatio','numberOfShares','currentPrice','newPrice','newShares','totalShares','refundAmount'])">Clear Fields</button>
+                  <button type="submit" class="btn btn-success" onclick="stockSpiltCalculator()">Calculate</button>
+                </div>
+                <div class="r-sip mt-4">
+                  <h5 id="newPrice">New Stock Price: $0.00</h5>
+                  <h5 id="newShares">Additional Shares: 0</h5>
+                  <h5 id="totalShares">Total Shares: 0</h5>
+                  <h5 id="refundAmount">Refund Amount: $0.00</h5>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-4 st banner-ad-desktop">
+                <div id="load-global-ads" class="load-global-ads"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 d-block d-md-none display-mobile-ad">
+                <div id="load-global-ads" class="load-global-ads"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-body-wrapper mt-4 details-sec-wrapper">
+            <h3 class="mb-2"><a href="./stock-split.html">Stock Split Calculator</a></h3>
+          
+            <p>Use this calculator to determine the new stock price and the number of shares you will own after a <a href="./stock-split.html">stock split</a>. You can also use this tool to understand the effects of a <a href="./stock-split.html">reverse stock split</a>.</p>
+            <br />
+            <p>A stock split increases the number of shares in a company by issuing more shares to current shareholders. For example, in a 2:1 stock split, for every 1 share owned, shareholders will receive 2 additional shares. Conversely, a <a href="./stock-split.html">reverse stock split</a> reduces the number of outstanding shares.</p>
+            <br />
+            <p>Inputs:</p>
+            <br />
+            <p>Current Stock Price ($): The current price per share of the stock.</p>
+            <br />
+            <p>Stock Split Ratio (New Shares : Old Shares): The ratio indicating how many new shares will be given for each old share. For a reverse split, you would enter the ratio in the opposite order (Old Shares : New Shares). To <a href="./stock-split.html">calculate reverse stock split</a>, enter the higher number first.</p>
+            <br />
+            <p>Number of Shares Owned: The number of shares you currently own.</p>
+            <br />
+            <p>Outputs:</p>
+            <br />
+            <p>New Stock Price: The adjusted price per share after the stock split or <a href="./stock-split.html">reverse stock split</a>.</p>
+            <br />
+            <p>Total Shares After Split: The total number of shares you will own after the stock split, including any fractional shares.</p>
+            <br />
+            <p>Whole Shares After Split: The number of whole shares you will own after the stock split.</p>
+            <br />
+            <p>Refund Amount: The monetary value of any fractional shares after the stock split.</p>
+          </div>
+        </div>
+        <ft-share></ft-share>
+
+      </div>
+      <script src="./script/components.js"></script>
+      <script src="./script/script.min.js"></script>
+      <script>
+        function stockSpiltCalculator() {
+          event.preventDefault();
+          let currentPrice = parseFloat(document.getElementById('currentPrice').value);
+          let splitRatio = document.getElementById('splitRatio').value.split(':');
+          let newShares = parseFloat(splitRatio[0]);
+          let oldShares = parseFloat(splitRatio[1]);
+          let numberOfShares = parseInt(document.getElementById('numberOfShares').value);
+
+          // Calculate new stock price
+          let newPrice = (currentPrice * oldShares) / (newShares + oldShares);
+          document.getElementById('newPrice').innerText = 'New Stock Price: $' + newPrice.toFixed(2);
+
+          // Calculate shares after split
+          let totalSharesAfterSplit = (newShares / oldShares) * numberOfShares;
+          document.getElementById('newShares').innerText = 'Additional Shares: ' + Math.floor(totalSharesAfterSplit);
+
+          // Calculate whole shares after split
+          let totalShares = Math.floor(totalSharesAfterSplit) + numberOfShares;
+          document.getElementById('totalShares').innerText = 'Total Shares: ' + totalShares;
+          // Calculate refund amount if there's any fractional share
+          let fractionalShare = totalSharesAfterSplit - Math.floor(totalSharesAfterSplit);
+          let refundAmount = fractionalShare * newPrice;
+          document.getElementById('refundAmount').innerText = 'Refund Amount: $' + refundAmount.toFixed(2);
+        }
+      </script>
+</body>
+
+</html>

@@ -25,110 +25,106 @@
   </style>
 </head>
 
-<body>
-  <div class="container-fluid wrapper-body">
-    <div class="row">
-      <div id="mobile-header" class="hidden-on-desktop-tablet">
-        <menu-btn></menu-btn>
-        <div class="mobile-logo">
-          <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Profit Calculator</h2>
-        </div>
-        <div></div>
+<body class="container-fluid wrapper-body">
+  <div class="row">
+    <div id="mobile-header" class="hidden-on-desktop-tablet">
+      <menu-btn></menu-btn>
+      <div class="mobile-logo">
+        <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Profit Calculator</h2>
       </div>
-      <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
-        <div class="title-wrapper">
-          <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
-          <div class="custom-control custom-switch mb-3">
-            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
-            <label class="custom-control-label" for="darkModeSwitch"></label>
-          </div>
-        </div>
-
-        <!---Menu Section-->
-        <div hidden id="page-name">Stock Profit Calculator</div>
-        <div class="top-menu">
-          <s-menu></s-menu>
+      <div></div>
+    </div>
+    <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
+      <div class="title-wrapper">
+        <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+        <div class="custom-control custom-switch mb-3">
+          <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
+          <label class="custom-control-label" for="darkModeSwitch"></label>
         </div>
       </div>
-      <div class="col content-right-body-wrapper">
-        <div id="sip-calculator">
-          <div class="content-body-wrapper">
-            <div class="row">
-              <div class="col-md-12">
-                <header class="d-flex justify-content-between">
-                  <h1 class="headers">Stock Profit or Loss Calculator</h1>
-                  <div id="clock"></div>
-                </header>
-                <hr />
-              </div>
-            </div>
-            <div class="row">
-              <div id="sip-result-wrapper" class="col-md-4">
 
-                <div class="mb-3">
-                  <label for="quantity" class="form-label">Stocks currently owned</label>
-                  <input type="number" class="form-control" id="quantity" placeholder="Enter number of stocks" onchange="calculateProfit()">
-                </div>
-                <div class="mb-3">
-                  <label for="buyPrice" class="form-label">Buy Price</label>
-                  <input type="number" class="form-control" id="buyPrice" placeholder="Enter buying price" onchange="calculateProfit()">
-                </div>
-                <div class="mb-3">
-                  <label for="sellPrice" class="form-label">Sell Price</label>
-                  <input type="number" class="form-control" id="sellPrice" placeholder="Enter selling price" onchange="calculateProfit()">
-                </div>
-                <div class="mb-3">
-                  <label for="sellQuantity" class="form-label">Stocks intended to sell</label>
-                  <input type="number" class="form-control" id="sellQuantity" placeholder="Enter number of stocks to sell" onchange="calculateProfit()">
-                  <span class="red error-msg hide" id="sell-quantity-error">Sell quantity cannot be greater than total quantity.</label>
-                </div>
-                <div class="result-wrapper">
-                  <div class="mt-3 text-left" id="stock-profit"></div>
-                </div>
-              </div>
-              <div class="col-md-3">
-
-              </div>
-              <div class="col-md-4 st banner-ad-desktop">
-                <div id="load-global-ads" class="load-global-ads"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 st">
-
-                <button class="btn btn-warning" onclick="clearStockProfitFields()">Clear Fields</button>
-                <button class="btn btn-success cust-btn-success" onclick="calculateProfit()">Calculate</button>
-              </div>
-              <div class="col-md-12 d-block d-md-none display-mobile-ad">
-                <div id="load-global-ads" class="load-global-ads"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content-body-wrapper mt-4 details-sec-wrapper">
-            <h3>Understanding the Stock Profit or Loss Calculator</h3>
-            <p>
-              The <a href="./stock-profit-calculator.html"><strong>Stock Profit or Loss Calculator</strong></a> is an essential tool designed to help investors like you easily determine the profitability of your stock market investments in the United States. This user-friendly calculator takes into account key details such as the number of shares you initially purchased, the price you paid per share (your buying price), the price at which you intend to sell your shares (the selling price), and the quantity of shares you plan to sell. By inputting this information, the calculator swiftly computes your total investment, the total value of the stocks you sell, the number of remaining shares in your portfolio, and, most importantly, the net profit or loss realized from your stock market transactions in the US.
-            </p>
-            <h3>How to Use Our Stock Profit or Loss Calculator</h3>
-            <ol>
-              <li>In the field labeled "Number of Stocks", enter the total number of shares you currently own.</li>
-              <li>Input the original purchase price for each share in the "Buying Price per Stock" field.</li>
-              <li>Specify the price at which you plan to sell your shares in the "Selling Price per Stock" field.</li>
-              <li>In the "Number of Stocks to Sell" field, enter the quantity of shares you wish to calculate the profit or loss for.</li>
-              <li>Simply click the "Calculate" button to instantly view the profit or loss generated from your stock market investments in the United States.</li>
-            </ol>
-          </div>
-        </div>
-        <ft-share></ft-share>
+      <!---Menu Section-->
+      <div hidden id="page-name">Stock Profit Calculator</div>
+      <div class="top-menu">
+        <s-menu></s-menu>
       </div>
     </div>
-  </div>
+    <div class="col content-right-body-wrapper">
+      <div id="sip-calculator">
+        <div class="content-body-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <header class="d-flex justify-content-between">
+                <h1 class="headers">Stock Profit or Loss Calculator</h1>
+                <div id="clock"></div>
+              </header>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div id="sip-result-wrapper" class="col">
 
+              <div class="mb-3">
+                <label for="quantity" class="form-label">Stocks currently owned</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Enter number of stocks" onchange="calculateProfit()">
+              </div>
+              <div class="mb-3">
+                <label for="buyPrice" class="form-label">Buy Price</label>
+                <input type="number" class="form-control" id="buyPrice" placeholder="Enter buying price" onchange="calculateProfit()">
+              </div>
+              <div class="mb-3">
+                <label for="sellPrice" class="form-label">Sell Price</label>
+                <input type="number" class="form-control" id="sellPrice" placeholder="Enter selling price" onchange="calculateProfit()">
+              </div>
+              <div class="mb-3">
+                <label for="sellQuantity" class="form-label">Stocks intended to sell</label>
+                <input type="number" class="form-control" id="sellQuantity" placeholder="Enter number of stocks to sell" onchange="calculateProfit()">
+                <span class="red error-msg hide" id="sell-quantity-error">Sell quantity cannot be greater than total quantity.</label>
+              </div>
+              <div class="result-wrapper">
+                <div class="mt-3 text-left" id="stock-profit"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-4 st banner-ad-desktop">
+              <div id="load-global-ads" class="load-global-ads"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 st">
+
+              <button class="btn btn-warning" onclick="clearStockProfitFields()">Clear Fields</button>
+              <button class="btn btn-success cust-btn-success" onclick="calculateProfit()">Calculate</button>
+            </div>
+            <div class="col-md-12 d-block d-md-none display-mobile-ad">
+              <div id="load-global-ads" class="load-global-ads"></div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body-wrapper mt-4 details-sec-wrapper">
+          <h3>Effortlessly Calculate Your Stock Market Profit or Loss</h3>
+          <p>
+            Our comprehensive <a href="./stock-profit-calculator.html"><strong>Stock Profit or Loss Calculator</strong></a> is an indispensable tool for investors in the United States seeking to easily and accurately determine the <a href="./stock-profit-calculator.html">profitability of their stock market ventures</a>. Designed with user-friendliness in mind, this calculator takes into account crucial details of your transactions. Simply input the number of shares you initially acquired, the <a href="./stock-profit-calculator.html">price you paid per share (your buy price)</a>, the intended <a href="./stock-profit-calculator.html">selling price per share</a>, and the quantity of shares you plan to sell. Upon entering this information, our powerful calculator swiftly computes key metrics such as your <a href="./stock-profit-calculator.html">total investment</a>, the total value of the stocks you sell, the number of remaining shares in your investment portfolio, and, most importantly, the precise <a href="./stock-profit-calculator.html">net profit or loss</a> you've realized from your <a href="./stock-profit-calculator.html">stock market transactions</a> within the US.
+          </p>
+          <h3>Simple Steps to Use Our <a href="./stock-profit-calculator.html">Stock Profit or Loss Calculator</a></h3>
+          <ol>
+            <li>In the designated field labeled "Number of Stocks", accurately enter the total quantity of shares you currently hold.</li>
+            <li>Provide the original <a href="./stock-profit-calculator.html">purchase price for each individual share</a> in the "Buying Price per Stock" field.</li>
+            <li>Specify the intended <a href="./stock-profit-calculator.html">selling price for each share</a> in the "Selling Price per Stock" field.</li>
+            <li>In the field titled "Number of Stocks to Sell", indicate the exact quantity of shares for which you wish to <a href="./stock-profit-calculator.html">calculate the profit or loss</a>.</li>
+            <li>With all the necessary information entered, simply click the "Calculate" button to instantly view a detailed breakdown of the <a href="./stock-profit-calculator.html">profit or loss generated from your stock market investments</a> in the United States.</li>
+          </ol>
+        </div>
+      </div>
+      <ft-share></ft-share>
+    </div>
   </div>
   <script src="./script/components.js"></script>
   <script src="./script/script.js"></script>

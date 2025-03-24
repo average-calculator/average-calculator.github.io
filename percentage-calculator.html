@@ -17,123 +17,120 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-  <div class="container-fluid wrapper-body">
-    <div class="row">
-      <div id="mobile-header" class="hidden-on-desktop-tablet">
-        <menu-btn></menu-btn>
-        <div class="mobile-logo">
-          <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
-        </div>
-        <div></div>
+<body class="container-fluid wrapper-body">
+  <div class="row">
+    <div id="mobile-header" class="hidden-on-desktop-tablet">
+      <menu-btn></menu-btn>
+      <div class="mobile-logo">
+        <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
       </div>
-      <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
-        <div class="title-wrapper">
-          <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
-          <div class="custom-control custom-switch mb-3">
-            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
-            <label class="custom-control-label" for="darkModeSwitch"></label>
-          </div>
+      <div></div>
+    </div>
+    <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
+      <div class="title-wrapper">
+        <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+        <div class="custom-control custom-switch mb-3">
+          <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
+          <label class="custom-control-label" for="darkModeSwitch"></label>
         </div>
+      </div>
 
-        <!---Menu Section-->
-        <div hidden id="page-name">Percentage Calculator</div>
-        <div class="top-menu">
-          <s-menu></s-menu>
-        </div>
+      <!---Menu Section-->
+      <div hidden id="page-name">Percentage Calculator</div>
+      <div class="top-menu">
+        <s-menu></s-menu>
       </div>
-      <div class="col content-right-body-wrapper">
-        <div id="percentage-calculator">
-          <div class="content-body-wrapper">
-            <div class="row">
-              <div class="col-md-12">
-                <header class="d-flex justify-content-between">
-                  <h1 class="headers">Percentage(%) calculator</h1>
-                  <div id="clock"></div>
-                </header>
-                <hr />
-              </div>
+    </div>
+    <div class="col content-right-body-wrapper">
+      <div id="percentage-calculator">
+        <div class="content-body-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <header class="d-flex justify-content-between">
+                <h1 class="headers">Percentage(%) calculator</h1>
+                <div id="clock"></div>
+              </header>
+              <hr />
             </div>
-            <div class="row">
-              <div id="percentage-result-wrapper" class="col-md-4">
+          </div>
+          <div class="row">
+            <div id="percentage-result-wrapper" class="col">
+              <div class="percentage-wrapper">
+                <div class="text-center mt-1"> <label>What is </label></div>
+                <div class="input-group">
+                  <input class="form-control percentage-input" type="number" id="percentage" autocomplete="off" onchange="checkPercentage()" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+                <div class="text-center mt-1"> <label>% (Percentage) of </label></div>
                 <div class="percentage-wrapper">
-                  <div class="text-center mt-1"> <label>What is </label></div>
-                  <div class="input-group">
-                    <input class="form-control percentage-input" type="number" id="percentage" autocomplete="off" onchange="checkPercentage()" />
-                    <div class="input-group-append">
-                      <span class="input-group-text">%</span>
-                    </div>
-                  </div>
-                  <div class="text-center mt-1"> <label>% (Percentage) of </label></div>
-                  <div class="percentage-wrapper">
-                    <input class="form-control percentage-input" type="number" id="percentageNumber" autocomplete="off" onchange="checkPercentage()" />
-                  </div>
-                  <div class="text-center mt-1"> <label>?</label></div>
+                  <input class="form-control percentage-input" type="number" id="percentageNumber" autocomplete="off" onchange="checkPercentage()" />
                 </div>
-                <div class="">
-                  <button class="btn btn-warning" onclick="clearAllFields(['percentage','percentageNumber','percentageResult'])"> Clear Fields</button>
-                  <button class="btn btn-success"> Calculate</button>
-                </div>
-                <div class="r-sip">
-                  <div class="results">Result : <span id="percentageResult">0</span> </div>
-                </div>
+                <div class="text-center mt-1"> <label>?</label></div>
               </div>
-              <div class="col-md-2">
+              <div class="">
+                <button class="btn btn-warning" onclick="clearAllFields(['percentage','percentageNumber','percentageResult'])"> Clear Fields</button>
+                <button class="btn btn-success"> Calculate</button>
               </div>
-              <div class="col-md-4 st banner-ad-desktop">
-                <div id="load-global-ads" class="load-global-ads"></div>
+              <div class="r-sip">
+                <div class="results">Result : <span id="percentageResult">0</span> </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-xs-12 d-block d-md-none display-mobile-ad">
-                <div id="load-global-ads" class="load-global-ads"></div>
-              </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4 st banner-ad-desktop">
+              <div id="load-global-ads" class="load-global-ads"></div>
             </div>
           </div>
-          <div class="content-body-wrapper mt-4 details-sec-wrapper">
-            <h3>Key Features:</h3>
-          
-            <ul>
-              <li><strong>Percentage of a Number:</strong> Easily calculates the percentage of any given number.</li>
-              <li><strong><a href="./percentage-calculator.html">Percentage Change Calculator</a>:</strong> Quickly computes the percentage change between two values.</li>
-              <li><strong><a href="./percentage-calculator.html">Percentage Increase Calculator</a> / <a href="./percentage-calculator.html">Percentage Decrease Calculator</a>:</strong> Determines the percentage increase or decrease from one value to another, helping you understand growth or reduction.</li>
-              <li><strong>Percent to Fraction and Decimal Conversion:</strong> Effortlessly converts percentages into fractions and decimals.</li>
-              <li><strong>Discount and Mark-up Calculations:</strong> Computes the discounted price or mark-up percentage for various applications.</li>
-              <li><strong>Tips and Commissions:</strong> Simplifies the calculation of tips or commissions based on a percentage of the total amount.</li>
-              <li><strong>Loan Interest Rates:</strong> Helps calculate interest rates on loans when you know the principal amount and the total interest accrued.</li>
-            </ul>
-          
-            <h3>How to Use a Percentage Calculator:</h3>
-          
-            <ol>
-              <li><strong>Entering Values:</strong> Users simply input the required values into the calculator fields based on the specific type of percentage calculation they need to perform. For example, for a <a href="./percentage-calculator.html">percentage difference calculator</a>, you would enter the two values you want to compare.</li>
-              <li><strong>Choosing Calculation Type:</strong> Select the specific type of percentage calculation desired (e.g., <a href="./percentage-calculator.html">percentage increase</a>, <a href="./percentage-calculator.html">percentage decrease</a>, percentage of a number).</li>
-              <li><strong>Result Display:</strong> The calculator instantly provides the calculated percentage or the related result based on the entered values and the chosen calculation type. This makes understanding <a href="./percentage-calculator.html">how to calculate percentage</a> changes straightforward.</li>
-            </ol>
-          
-            <h3>Benefits of a Percentage Calculator:</h3>
-          
-            <ul>
-              <li><strong>Accuracy and Efficiency:</strong> Reduces the risk of manual calculation errors, ensuring accurate results every time. Saves valuable time by automating even complex percentage calculations.</li>
-              <li><strong>Versatility:</strong> A highly versatile tool useful in a wide range of scenarios, including finance, business analysis, educational purposes, and everyday calculations. Whether you need a <a href="./percentage-calculator.html">percentage change calculator</a> for business or to understand discounts, this tool is invaluable.</li>
-              <li><strong>Ease of Use:</strong> Designed with a user-friendly interface, making percentage-related computations accessible to everyone, regardless of their mathematical background.</li>
-              <li><strong>Educational Tool:</strong> Serves as a practical educational tool, helping users to better understand and learn the fundamental concepts of percentages through real-world applications.</li>
-            </ul>
-          
-            <h3>Conclusion:</h3>
-          
-            <p>
-              The Percentage Calculator is a versatile and efficient tool that simplifies various percentage-related calculations, providing accurate results instantly. Whether you need to calculate <a href="./percentage-calculator.html">percentage increase</a> for sales figures, determine the <a href="./percentage-calculator.html">percentage difference</a> between two data points, track <a href="./percentage-calculator.html">percentage change</a> over time, or simply understand <a href="./percentage-calculator.html">how to calculate percentage</a> manually, this calculator is a valuable resource across numerous fields. It empowers users to make informed decisions and solve mathematical problems involving percentages with ease and confidence.
-            </p>
-          
+          <div class="row">
+            <div class="col-xs-12 d-block d-md-none display-mobile-ad">
+              <div id="load-global-ads" class="load-global-ads"></div>
+            </div>
           </div>
         </div>
-        <ft-share></ft-share>
+        <div class="content-body-wrapper mt-4 details-sec-wrapper">
+          <h3>Key Features:</h3>
+        
+          <ul>
+            <li><strong>Percentage of a Number:</strong> Easily calculates the percentage of any given number.</li>
+            <li><strong><a href="./percentage-calculator.html">Percentage Change Calculator</a>:</strong> Quickly computes the percentage change between two values.</li>
+            <li><strong><a href="./percentage-calculator.html">Percentage Increase Calculator</a> / <a href="./percentage-calculator.html">Percentage Decrease Calculator</a>:</strong> Determines the percentage increase or decrease from one value to another, helping you understand growth or reduction.</li>
+            <li><strong>Percent to Fraction and Decimal Conversion:</strong> Effortlessly converts percentages into fractions and decimals.</li>
+            <li><strong>Discount and Mark-up Calculations:</strong> Computes the discounted price or mark-up percentage for various applications.</li>
+            <li><strong>Tips and Commissions:</strong> Simplifies the calculation of tips or commissions based on a percentage of the total amount.</li>
+            <li><strong>Loan Interest Rates:</strong> Helps calculate interest rates on loans when you know the principal amount and the total interest accrued.</li>
+          </ul>
+        
+          <h3>How to Use a Percentage Calculator:</h3>
+        
+          <ol>
+            <li><strong>Entering Values:</strong> Users simply input the required values into the calculator fields based on the specific type of percentage calculation they need to perform. For example, for a <a href="./percentage-calculator.html">percentage difference calculator</a>, you would enter the two values you want to compare.</li>
+            <li><strong>Choosing Calculation Type:</strong> Select the specific type of percentage calculation desired (e.g., <a href="./percentage-calculator.html">percentage increase</a>, <a href="./percentage-calculator.html">percentage decrease</a>, percentage of a number).</li>
+            <li><strong>Result Display:</strong> The calculator instantly provides the calculated percentage or the related result based on the entered values and the chosen calculation type. This makes understanding <a href="./percentage-calculator.html">how to calculate percentage</a> changes straightforward.</li>
+          </ol>
+        
+          <h3>Benefits of a Percentage Calculator:</h3>
+        
+          <ul>
+            <li><strong>Accuracy and Efficiency:</strong> Reduces the risk of manual calculation errors, ensuring accurate results every time. Saves valuable time by automating even complex percentage calculations.</li>
+            <li><strong>Versatility:</strong> A highly versatile tool useful in a wide range of scenarios, including finance, business analysis, educational purposes, and everyday calculations. Whether you need a <a href="./percentage-calculator.html">percentage change calculator</a> for business or to understand discounts, this tool is invaluable.</li>
+            <li><strong>Ease of Use:</strong> Designed with a user-friendly interface, making percentage-related computations accessible to everyone, regardless of their mathematical background.</li>
+            <li><strong>Educational Tool:</strong> Serves as a practical educational tool, helping users to better understand and learn the fundamental concepts of percentages through real-world applications.</li>
+          </ul>
+        
+          <h3>Conclusion:</h3>
+        
+          <p>
+            The Percentage Calculator is a versatile and efficient tool that simplifies various percentage-related calculations, providing accurate results instantly. Whether you need to calculate <a href="./percentage-calculator.html">percentage increase</a> for sales figures, determine the <a href="./percentage-calculator.html">percentage difference</a> between two data points, track <a href="./percentage-calculator.html">percentage change</a> over time, or simply understand <a href="./percentage-calculator.html">how to calculate percentage</a> manually, this calculator is a valuable resource across numerous fields. It empowers users to make informed decisions and solve mathematical problems involving percentages with ease and confidence.
+          </p>
+        
+        </div>
       </div>
+      <ft-share></ft-share>
     </div>
   </div>
 
-  </div>
   <script src="./script/components.js"></script>
   <script src="./script/script.min.js"></script>
 </body>

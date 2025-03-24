@@ -29,7 +29,7 @@ class SiteMenu extends HTMLElement {
         <i class="fas fa-tachometer-alt"></i>Stock Average Calculator
       </a>
     </li>
-    <!-- <li title="Stock Profit Calculator">
+    <li title="Stock Profit Calculator">
       <a href="./stock-profit-calculator.html">
         <i class="fas fa-chart-line"></i>Stock Profit/Loss Calculator
       </a>
@@ -69,30 +69,6 @@ class SiteMenu extends HTMLElement {
         <i class="fas fa-angle-double-up"></i>Rule of 72 Calculator
       </a>
     </li>
-    <li title="Dividend Details">
-      <a href="./indian-stock-market-dividend-details.html">
-          <i class="fas fa-cubes"></i>
-          Dividend Details 2023 - 2025 <img src="./images/new-icon.gif" height="35" width="35" />
-      </a>
-    </li>
-    <li title="Bonus Details">
-      <a href="./indian-stock-market-bonus-and-buyback-details.html">
-        <i class="fas fa-search-dollar"></i>
-        Bonus & Buyback Details
-      </a>
-    </li>
-    <li title="Face Value Split Details">
-      <a href="./indian-stock-market-face-value-and-demerger.html">
-        <i class="fas fa-cut"></i>
-        Face value split & Demerger
-      </a>
-    </li>
-    <li title="holiday Calender 2025">
-      <a href="./indian-equity-market-holiday-calender-2025.html">
-        <i class="far fa-calendar-alt"></i>
-        Trading Holidays 2025 <img src="./images/new-icon.gif" height="35" width="35" />
-      </a>
-    </li> -->
     <li title="About Us">
       <a href="./about-us.html">
         <i class="fas fa-user-friends"></i>About Us
@@ -131,3 +107,19 @@ class SiteFooter extends HTMLElement {
 
 // 注册 Web Component
 customElements.define("ft-share", SiteFooter);
+
+class HamburgerMenu extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <div id="toggle-btn">
+        <button id="hamburger" class="hamburger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    `;
+  }
+}
+
+customElements.define("menu-btn", HamburgerMenu);

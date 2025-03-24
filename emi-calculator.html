@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>EMI Calculator</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="description" content="Calculate your loan EMIs with ease using our free EMI Calculator. Quickly estimate monthly payments for car loans, home loans, and more. Understand your EMI calculation today!" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="container-fluid wrapper-body">
+  <div class="row">
+    <div id="mobile-header" class="hidden-on-desktop-tablet">
+      <menu-btn></menu-btn>
+      <div class="mobile-logo">
+        <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+      </div>
+      <div></div>
+    </div>
+    <div class="col-8 col-md-4 col-lg-3 col-xl-2 sidebar" id="sidebar">
+      <div class="title-wrapper">
+        <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calculator</h2>
+        <div class="custom-control custom-switch mb-3">
+          <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
+          <label class="custom-control-label" for="darkModeSwitch"></label>
+        </div>
+      </div>
+
+      <!---Menu Section-->
+      <div hidden id="page-name">EMI Calculator</div>
+      <div class="top-menu">
+        <s-menu></s-menu>
+      </div>
+    </div>
+    <div class="col content-right-body-wrapper">
+      <div id="emi-calculator">
+        <div class="content-body-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <header class="d-flex justify-content-between">
+                <h2 class="headers">EMI calculator</h2>
+                <div id="clock"></div>
+              </header>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div id="sip-result-wrapper" class="col">
+              <div>
+                <label style="float:left;margin-right:10px;">Loan Amount</label>
+                <input class="form-control" type="number" id="loanAmount" placeholder="Enter loan amount" autocomplete="off" onchange="calculateEMI()" required>
+                <span id='error1'></span>
+              </div>
+              <div style="margin-top:15px">
+                <label style="float:left;margin-right:10px;" for="interestRate">Annual Interest Rate (%):</label>
+                <div class="input-group">
+                  <input class="form-control" type="number" id="interestRate" placeholder="Enter annual interest rate" autocomplete="off" onchange="calculateEMI()" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">%</span>
+                  </div>
+                </div>
+                <span id='error2'></span>
+              </div>
+              <div style="margin-top:15px">
+                <label style="float:left;margin-right:10px;" for="loanTerm">Loan Term (Months):</label>
+                <div class="input-group">
+                  <input class="form-control" type="number" id="loanTerm" placeholder="Enter loan term in months" autocomplete="off" onchange="calculateEMI()" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">Months</span>
+                  </div>
+                </div>
+                <span id='error2'></span>
+              </div>
+              <div class="r-sip">
+                <div class="results">EMI (Per month) : <span id="total-emi">0</span> </div>
+                <div class="results">Total Principal: <span id="total-principal">0</span> </div>
+                <div class="results">Total Interest: <span id="total-interest">0</span> </div>
+                <div class="results">Total Amount : <span id="total-amount">0</span> </div>
+                <hr />
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <div class="emi-chart-desktop">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 st banner-ad-desktop">
+              <div id="load-indian-ads" class="load-indian-ads-option-one"></div>
+              <div id="load-global-ads" class="load-global-ads-option-one"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 st">
+              <button class="btn btn-warning" onclick="clearFields2()">Clear Fields</button>
+              <button class="btn btn-success cust-btn-success" onclick="calculateEMI()">Calculate</button>
+            </div>
+            <div class="col-md-12 d-block d-md-none display-mobile-ad">
+              <div id="load-indian-ads" class="load-indian-ads-option-one"></div>
+              <div id="load-global-ads" class="load-global-ads-option-one"></div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body-wrapper mt-4 details-sec-wrapper">
+          <h3 class="mb-2"><a href="./emi-calculator.html">EMI Calculator</a></h3>
+          <p>An <a href="./emi-calculator.html">EMI Calculator</a> (Equated Monthly Installment Calculator) is a vital financial tool designed to calculate the fixed monthly payment amount required to repay a loan over a specified tenure at a given interest rate. Whether you're considering a <a href="./emi-calculator.html">car EMI calculator</a> for your next vehicle or a <a href="./emi-calculator.html">home loan EMI calculator</a> for your dream house, this tool helps borrowers thoroughly understand their repayment obligations and effectively plan their finances.</p>
+          <p>To use our <a href="./emi-calculator.html">EMI calculation calculator</a>, simply enter the loan amount (principal), the annual interest rate (percentage), and the loan tenure (expressed in months) into the respective fields below. Then, click the "Calculate EMI" button. The calculator will instantly compute the EMI amount, the total interest payable throughout the loan term, and the total payment (which includes both the principal loan amount and the total interest). The results will be clearly displayed, allowing you to make informed financial decisions.</p>
+        </div>
+        <ft-share></ft-share>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./script/components.js"></script>
+  <script src="./script/script.js"></script>
+</body>
+
+</html>
